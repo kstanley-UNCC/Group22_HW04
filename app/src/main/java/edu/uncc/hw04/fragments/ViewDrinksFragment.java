@@ -3,7 +3,7 @@
  * ViewDrinksFragment.java
  * Ken Stanley & Stephanie Karp
  */
-package com.example.group22_hw03.fragments;
+package edu.uncc.hw04.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -17,8 +17,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.group22_hw03.Drink;
-import com.example.group22_hw03.R;
+import edu.uncc.hw04.Drink;
+import edu.uncc.hw04.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

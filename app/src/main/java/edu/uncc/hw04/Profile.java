@@ -3,7 +3,7 @@
  * Profile.java
  * Ken Stanley & Stephanie Karp
  */
-package com.example.group22_hw03;
+package edu.uncc.hw04;
 
 import android.os.Parcel;
 import android.os.Parcelable;

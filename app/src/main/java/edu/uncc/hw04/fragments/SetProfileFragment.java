@@ -3,7 +3,7 @@
  * SetProfileFragment.java
  * Ken Stanley & Stephanie Karp
  */
-package com.example.group22_hw03.fragments;
+package edu.uncc.hw04.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,8 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.group22_hw03.Profile;
-import com.example.group22_hw03.R;
+import edu.uncc.hw04.Profile;
+import edu.uncc.hw04.R;
 
 public class SetProfileFragment extends Fragment {
 

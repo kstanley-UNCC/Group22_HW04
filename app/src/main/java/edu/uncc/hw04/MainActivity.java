@@ -3,31 +3,35 @@
  * MainActivity.java
  * Ken Stanley & Stephanie Karp
  */
-package com.example.group22_hw03;
+package edu.uncc.hw04;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-import com.example.group22_hw03.fragments.AddDrinkFragment;
-import com.example.group22_hw03.fragments.BACCalculatorFragment;
-import com.example.group22_hw03.fragments.SetProfileFragment;
-import com.example.group22_hw03.fragments.ViewDrinksFragment;
+import edu.uncc.hw04.fragments.AddDrinkFragment;
+import edu.uncc.hw04.fragments.BACCalculatorFragment;
+import edu.uncc.hw04.fragments.SetProfileFragment;
+import edu.uncc.hw04.fragments.ViewDrinksFragment;
 
 import java.util.ArrayList;
 
+import edu.uncc.hw04.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity implements BACCalculatorFragment.iListener, AddDrinkFragment.iListener, SetProfileFragment.iListener, ViewDrinksFragment.iListener {
-    private ArrayList<Drink> drinks;
+    ActivityMainBinding binding;
+    private ArrayList<edu.uncc.hw04.Drink> drinks;
     private Profile profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.containerView, new BACCalculatorFragment(), "calculator")
+                .add(R.id.containerView, new BACCalculatorFragment())
                 .commit();
 
         drinks = new ArrayList<>();

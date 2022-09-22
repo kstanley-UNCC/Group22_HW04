@@ -3,13 +3,11 @@
  * BACCalculatorFragment.java
  * Ken Stanley & Stephanie Karp
  */
-package com.example.group22_hw03.fragments;
+package edu.uncc.hw04.fragments;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +19,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.group22_hw03.Drink;
-import com.example.group22_hw03.Profile;
-import com.example.group22_hw03.R;
+import edu.uncc.hw04.Drink;
+import edu.uncc.hw04.Profile;
+import edu.uncc.hw04.R;
 
 import java.util.ArrayList;
 
