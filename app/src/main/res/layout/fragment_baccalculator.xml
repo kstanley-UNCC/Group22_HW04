@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.BACCalculatorFragment">
+
+    <TextView
+        android:id="@+id/bacCalculatorWeightLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/weight_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bacCalculatorWeightView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/bacCalculatorWeightLabel"
+        app:layout_constraintTop_toTopOf="@+id/bacCalculatorWeightLabel" />
+
+    <TextView
+        android:id="@+id/bacCalculatorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/num_drinks_label"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.324"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bacCalculatorWeightLabel" />
+
+    <TextView
+        android:id="@+id/bacCalculatorNumDrinksView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bacCalculatorTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bacCalculatorTextView"
+        app:layout_constraintTop_toTopOf="@+id/bacCalculatorTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/bacCalculatorBacLevelViewLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/bac_level_label"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bacCalculatorTextView"
+        app:layout_constraintTop_toBottomOf="@+id/bacCalculatorTextView" />
+
+    <TextView
+        android:id="@+id/bacCalculatorBacLevelView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/bacCalculatorBacLevelViewLabel"
+        app:layout_constraintEnd_toEndOf="@+id/bacCalculatorNumDrinksView"
+        app:layout_constraintStart_toStartOf="@+id/bacCalculatorNumDrinksView"
+        app:layout_constraintTop_toTopOf="@+id/bacCalculatorBacLevelViewLabel"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/bacCalculatorStatusViewLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/status_view_label"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="@+id/bacCalculatorBacLevelViewLabel"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bacCalculatorBacLevelViewLabel" />
+
+    <TextView
+        android:id="@+id/bacCalculatorStatusView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_corners"
+        android:text="@string/status_view_safe"
+        android:textAlignment="center"
+        android:textColor="#0D47A1"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/bacCalculatorStatusViewLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/bacCalculatorStatusViewLabel"
+        app:layout_constraintTop_toTopOf="@+id/bacCalculatorStatusViewLabel" />
+
+    <Button
+        android:id="@+id/bacCalculatorButtonAddDrink"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/add_drink_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bacCalculatorButtonViewDrinks" />
+
+    <Button
+        android:id="@+id/bacCalculatorButtonSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/set_weight_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toEndOf="@+id/bacCalculatorWeightView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bacCalculatorButtonViewDrinks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/view_drink_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bacCalculatorStatusViewLabel" />
+
+    <Button
+        android:id="@+id/bacCalculatorButtonReset"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/reset_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bacCalculatorButtonAddDrink" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
