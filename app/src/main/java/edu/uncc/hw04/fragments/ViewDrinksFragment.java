@@ -13,9 +13,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import edu.uncc.hw04.Drink;
 import edu.uncc.hw04.R;
+import edu.uncc.hw04.ViewDrinksRecyclerAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,6 +29,9 @@ import java.util.Locale;
 public class ViewDrinksFragment extends Fragment {
     int currentDrinkNumber = 0;
     ArrayList<Drink> drinks;
+    LinearLayoutManager layoutManager;
+    ViewDrinksRecyclerAdapter adapter;
+    RecyclerView viewDrinksRecyclerView;
 
     public ViewDrinksFragment(ArrayList<Drink> drinks) {
         this.drinks = drinks;
@@ -38,12 +44,19 @@ public class ViewDrinksFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_viewdrinks, container, false);
+        return inflater.inflate(R.layout.fragment_viewdrinks_list_row, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        viewDrinksRecyclerView.findViewById(R.id.viewDrinksRecyclerView);
+        viewDrinksRecyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(getActivity());
+        viewDrinksRecyclerView.setLayoutManager(layoutManager);
+        adapter = new ViewDrinksRecyclerAdapter(drinks);
+        viewDrinksRecyclerView.setAdapter(adapter);
 
         updateView(drinks);
     }
