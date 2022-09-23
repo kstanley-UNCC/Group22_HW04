@@ -44,10 +44,14 @@
     <string name="status_view_danger">Over the Limit!</string>
     <string name="status_view_over">No more drinks for you.</string>
 
-    <string name="view_current_drink_number">Drink %d out of %d</string>
-    <string name="view_alcohol_percent">%.0f%% Alcohol</string>
-    <string name="view_drink_size">%.0f oz</string>
-    <string name="view_date_added">Added %s</string>
+    <string name="view_drink_sort_asc">Sort Ascending</string>
+    <string name="view_drink_sort_desc">Sort Descending</string>
+    <string name="view_drink_sort_alcohol_percent_label">Sort by Alcohol %:</string>
+    <string name="view_drink_sort_date_added_label">Sort by Date Added:</string>
+    <string name="view_drink_list_row_alcohol_percent">%d%% Alcohol</string>
+    <string name="view_drink_list_row_date_added">Added %s</string>
+    <string name="view_drink_list_row_drink_size">%doz</string>
+    <string name="view_drink_button_close">Close</string>
 
     <string name="exception_illegal_state_drink_size">Invalid drink size selection.</string>
     <string name="exception_illegal_state_gender">Invalid gender selection.</string>

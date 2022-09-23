@@ -10,9 +10,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,16 +24,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class ViewDrinksFragment extends Fragment {
-
-    TextView viewAlcoholPercent;
-    TextView viewCurrentDrinkNumber;
-    TextView viewDateAdded;
-    TextView viewDrinkSize;
-    Button viewDrinksButtonClose;
-    ImageButton viewDrinksButtonTrash;
-    ImageButton viewDrinksButtonPrevious;
-    ImageButton viewDrinksButtonNext;
-
     int currentDrinkNumber = 0;
     ArrayList<Drink> drinks;
 
@@ -58,23 +45,6 @@ public class ViewDrinksFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        viewAlcoholPercent = view.findViewById(R.id.viewAlcoholPercent);
-        viewCurrentDrinkNumber = view.findViewById(R.id.viewCurrentDrinkNumber);
-        viewDateAdded = view.findViewById(R.id.viewDateAdded);
-        viewDrinkSize = view.findViewById(R.id.viewDrinkSize);
-        viewDrinksButtonClose = view.findViewById(R.id.viewDrinksButtonClose);
-        viewDrinksButtonTrash = view.findViewById(R.id.viewDrinksButtonTrash);
-        viewDrinksButtonPrevious = view.findViewById(R.id.viewDrinksButtonPrevious);
-        viewDrinksButtonNext = view.findViewById(R.id.viewDrinksButtonNext);
-
-        view.findViewById(R.id.viewDrinksButtonTrash).setOnClickListener(v -> trashDrink(drinks));
-
-        view.findViewById(R.id.viewDrinksButtonClose).setOnClickListener(v -> listener.viewDrinksButtonCloseClicked(drinks));
-
-        view.findViewById(R.id.viewDrinksButtonPrevious).setOnClickListener(v -> previousDrink(drinks));
-
-        view.findViewById(R.id.viewDrinksButtonNext).setOnClickListener(v -> nextDrink(drinks));
-
         updateView(drinks);
     }
 
@@ -95,39 +65,6 @@ public class ViewDrinksFragment extends Fragment {
 
         Date drinkDate = Calendar.getInstance().getTime();
         drinkDate.setTime(currentDrink.dateTime);
-
-        viewCurrentDrinkNumber.setText(getString(R.string.view_current_drink_number, currentDrinkNumber + 1, drinks.size()));
-        viewAlcoholPercent.setText(getString(R.string.view_alcohol_percent, currentDrink.drinkAlcoholPercent));
-        viewDrinkSize.setText(getString(R.string.view_drink_size, currentDrink.drinkSize));
-        viewDateAdded.setText(getString(R.string.view_date_added, dateFormat.format(drinkDate)));
-    }
-
-    public void previousDrink(ArrayList<Drink> drinks) {
-        currentDrinkNumber--;
-        if (currentDrinkNumber < 0) {
-            currentDrinkNumber = drinks.size() - 1;
-        }
-
-        updateView(drinks);
-    }
-
-    public void nextDrink(ArrayList<Drink> drinks) {
-        currentDrinkNumber++;
-        if (currentDrinkNumber >= drinks.size()) {
-            currentDrinkNumber = 0;
-        }
-
-        updateView(drinks);
-    }
-
-    public void trashDrink(ArrayList<Drink> drinks) {
-        drinks.remove(currentDrinkNumber);
-
-        if (drinks.isEmpty()) {
-            viewDrinksButtonClose.performClick();
-            return;
-        }
-        viewDrinksButtonPrevious.performClick();
     }
 
     iListener listener;
