@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements BACCalculatorFrag
         setContentView(binding.getRoot());
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.containerView, new BACCalculatorFragment())
+                .add(R.id.containerView, new BACCalculatorFragment(), "calculator")
                 .commit();
 
         drinks = new ArrayList<>();
