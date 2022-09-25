@@ -112,27 +112,6 @@ public class MainActivity extends AppCompatActivity implements BACCalculatorFrag
         }
     }
 
-
-    @Override
-    public void sortByAlcoholPercentAsc(ArrayList<Drink> drinks) {
-        Collections.sort(drinks, new Comparator<Drink>() {
-            @Override
-            public int compare(Drink o1, Drink o2) {
-                return o1.getDrinkAlcoholPercent().compareTo(o2.getDrinkAlcoholPercent());
-            }
-        });
-    }
-
-    @Override
-    public void sortByDateAddedAsc(ArrayList<Drink> drinks) {
-        Collections.sort(drinks, new Comparator<Drink>() {
-            @Override
-            public int compare(Drink o1, Drink o2) {
-                return o1.getDrinkDateAdded().compareTo(o2.getDrinkDateAdded());
-            }
-        });
-    }
-
     @Override
     public void viewDrinksButtonCloseClicked(ArrayList<Drink> drinks) {
         BACCalculatorFragment fragment = (BACCalculatorFragment)getSupportFragmentManager().findFragmentByTag("calculator");

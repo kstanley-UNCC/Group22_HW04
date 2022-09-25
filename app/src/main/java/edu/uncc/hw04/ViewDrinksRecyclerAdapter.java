@@ -61,7 +61,6 @@ public class ViewDrinksRecyclerAdapter extends RecyclerView.Adapter<ViewDrinksRe
         TextView viewDrinksListRowAlcoholPercent;
         TextView viewDrinksListRowDateAdded;
         TextView viewDrinksListRowDrinkSize;
-        ArrayList <Drink> drinks;
         iViewDrinks iListener;
 
         public DrinkViewHolder(@NonNull View itemView, iViewDrinks iListener) {
@@ -72,7 +71,6 @@ public class ViewDrinksRecyclerAdapter extends RecyclerView.Adapter<ViewDrinksRe
             viewDrinksListRowDateAdded = itemView.findViewById(R.id.viewDrinksListRowDateAdded);
             viewDrinksListRowDrinkSize = itemView.findViewById(R.id.viewDrinksListRowDrinkSize);
 
-
             itemView.findViewById(R.id.viewDrinksListRowTrashButton).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -80,11 +78,8 @@ public class ViewDrinksRecyclerAdapter extends RecyclerView.Adapter<ViewDrinksRe
                     iListener.trashButtonClicked(currentDrinkNumber);
                 }
             });
-
         }
     }
-
-
 
     public interface iViewDrinks {
         void trashButtonClicked(int currentDrinkNumber);

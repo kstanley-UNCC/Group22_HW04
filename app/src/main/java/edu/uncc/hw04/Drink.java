@@ -11,7 +11,7 @@ import android.os.Parcelable;
 import java.util.Calendar;
 import java.util.Comparator;
 
-public class Drink implements Parcelable {
+public class Drink implements Parcelable, Comparable<Drink>{
     public static final double SIZE_SMALL = 1.0;
     public static final double SIZE_MEDIUM = 5.0;
     public static final double SIZE_LARGE = 12.0;
@@ -64,5 +64,24 @@ public class Drink implements Parcelable {
         parcel.writeDouble(drinkSize);
         parcel.writeDouble(drinkAlcoholPercent);
         parcel.writeLong(dateTime);
+    }
+
+    @Override
+    public int compareTo(Drink o) {
+        return 0;
+    }
+
+    public static class AlcoholPercentComparator implements Comparator<Drink> {
+        @Override
+        public int compare(Drink o1, Drink o2) {
+            return o1.getDrinkAlcoholPercent().compareTo(o2.getDrinkAlcoholPercent());
+        }
+    }
+
+    public static class DateAddedComparator implements Comparator<Drink> {
+        @Override
+        public int compare(Drink o1, Drink o2) {
+            return o1.getDrinkDateAdded().compareTo(o2.getDrinkDateAdded());
+        }
     }
 }

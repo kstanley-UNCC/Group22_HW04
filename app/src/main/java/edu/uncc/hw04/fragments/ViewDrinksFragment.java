@@ -13,11 +13,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import edu.uncc.hw04.Drink;
+import edu.uncc.hw04.Drink.AlcoholPercentComparator;
+import edu.uncc.hw04.Drink.DateAddedComparator;
 import edu.uncc.hw04.R;
 import edu.uncc.hw04.ViewDrinksRecyclerAdapter;
 
@@ -29,11 +30,14 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 
-public class ViewDrinksFragment extends Fragment implements ViewDrinksRecyclerAdapter.iViewDrinks, Comparable{
+public class ViewDrinksFragment extends Fragment implements ViewDrinksRecyclerAdapter.iViewDrinks {
     int currentDrinkNumber = 0;
     ArrayList<Drink> drinks;
     LinearLayoutManager layoutManager;
     ViewDrinksRecyclerAdapter adapter;
+
+    AlcoholPercentComparator alcPercentComp = new AlcoholPercentComparator();
+    DateAddedComparator dateAddedComp = new DateAddedComparator();
 
     public ViewDrinksFragment(ArrayList<Drink> drinks) {
         this.drinks = drinks;
@@ -72,28 +76,28 @@ public class ViewDrinksFragment extends Fragment implements ViewDrinksRecyclerAd
         view.findViewById(R.id.viewDrinksSortAlcoholPercentAscButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.sortByAlcoholPercentAsc(drinks);
+                sortByAlcoholPercentAsc(drinks);
             }
         });
 
         view.findViewById(R.id.viewDrinksSortAlcoholPercentDescButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                sortByAlcoholPercentDesc(drinks);
             }
         });
 
         view.findViewById(R.id.viewDrinksSortDateAddedAscButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.sortByDateAddedAsc(drinks);
+                sortByDateAddedAsc(drinks);
             }
         });
 
         view.findViewById(R.id.viewDrinksSortDateAddedDescButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                sortByDateAddedDesc(drinks);
             }
         });
 
@@ -118,6 +122,24 @@ public class ViewDrinksFragment extends Fragment implements ViewDrinksRecyclerAd
         drinkDate.setTime(currentDrink.dateTime);
     }
 
+    public void sortByAlcoholPercentAsc(ArrayList<Drink> drinks) {
+        Collections.sort(drinks, alcPercentComp);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void sortByAlcoholPercentDesc(ArrayList<Drink> drinks) {
+
+    }
+
+    public void sortByDateAddedAsc(ArrayList<Drink> drinks) {
+        Collections.sort(drinks, dateAddedComp);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void sortByDateAddedDesc(ArrayList<Drink> drinks) {
+
+    }
+
     iListener mListener;
 
     @Override
@@ -130,16 +152,7 @@ public class ViewDrinksFragment extends Fragment implements ViewDrinksRecyclerAd
         }
     }
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
-
     public interface iListener {
         void viewDrinksButtonCloseClicked(ArrayList<Drink> drinks);
-
-        void sortByAlcoholPercentAsc(ArrayList<Drink> drinks);
-
-        void sortByDateAddedAsc(ArrayList<Drink> drinks);
     }
 }
