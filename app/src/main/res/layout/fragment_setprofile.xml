@@ -4,23 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="2"
+    android:gravity="center_horizontal"
     tools:context=".fragments.SetProfileFragment">
 
     <Button
         android:id="@+id/setProfileButtonSet"
-        android:layout_width="165dp"
-        android:layout_height="47dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_weight="1"
         android:text="@string/set_weight_button_label"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/setProfileButtonCancel"
         app:layout_constraintTop_toBottomOf="@+id/setProfileGenderGroup" />
 
     <Button
         android:id="@+id/setProfileButtonCancel"
-        android:layout_width="165dp"
-        android:layout_height="47dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
         android:text="@string/cancel_button_label"
         app:layout_constraintBottom_toBottomOf="@+id/setProfileButtonSet"
         app:layout_constraintEnd_toStartOf="@+id/setProfileButtonSet"
