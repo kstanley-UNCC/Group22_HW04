@@ -48,10 +48,14 @@
     <string name="view_drink_sort_desc">Sort Descending</string>
     <string name="view_drink_sort_alcohol_percent_label">Sort by Alcohol %:</string>
     <string name="view_drink_sort_date_added_label">Sort by Date Added:</string>
-    <string name="view_drink_list_row_alcohol_percent">%d%% Alcohol</string>
+    <string name="view_drink_list_row_alcohol_percent">%.0f % Alcohol</string>
     <string name="view_drink_list_row_date_added">Added %s</string>
-    <string name="view_drink_list_row_drink_size">%doz</string>
+    <string name="view_drink_list_row_drink_size">%.0f oz</string>
     <string name="view_drink_button_close">Close</string>
+
+    <string name="content_description_drink_image">Drink Image</string>
+    <string name="content_description_trash_image">Trash Image</string>
+
 
     <string name="exception_illegal_state_drink_size">Invalid drink size selection.</string>
     <string name="exception_illegal_state_gender">Invalid gender selection.</string>

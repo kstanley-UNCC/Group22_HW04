@@ -12,64 +12,73 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/view_drink_sort_alcohol_percent_label"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewDrinksSortAlcoholPercentAsc"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDrinksSortAlcoholPercentAscButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewDrinksSortAlcoholPercentAsc" />
+        app:layout_constraintTop_toTopOf="@+id/viewDrinksSortAlcoholPercentAscButton" />
 
     <TextView
         android:id="@+id/viewDrinksSortDateAdded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/view_drink_sort_date_added_label"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewDrinksSortDateAddedAsc"
         app:layout_constraintStart_toStartOf="@+id/viewDrinksSortAlcoholPercent"
         app:layout_constraintTop_toTopOf="@+id/viewDrinksSortDateAddedAsc" />
 
-    <ImageView
-        android:id="@+id/viewDrinksSortAlcoholPercentAsc"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <ImageButton
+        android:id="@+id/viewDrinksSortAlcoholPercentAscButton"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#00FFFFFF"
         android:contentDescription="@string/view_drink_sort_asc"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_sort_ascending"
         app:layout_constraintEnd_toStartOf="@+id/viewDrinksSortAlcoholPercentDesc"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/viewDrinksSortAlcoholPercentDesc"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#00FFFFFF"
         android:contentDescription="@string/view_drink_sort_desc"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_sort_descending"
-        app:layout_constraintBottom_toBottomOf="@+id/viewDrinksSortAlcoholPercentAsc"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDrinksSortAlcoholPercentAscButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewDrinksSortAlcoholPercentAsc" />
+        app:layout_constraintTop_toTopOf="@+id/viewDrinksSortAlcoholPercentAscButton" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/viewDrinksSortDateAddedDesc"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#00FFFFFF"
         android:contentDescription="@string/view_drink_sort_desc"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_sort_descending"
         app:layout_constraintBottom_toBottomOf="@+id/viewDrinksSortDateAddedAsc"
         app:layout_constraintEnd_toEndOf="@+id/viewDrinksSortAlcoholPercentDesc"
         app:layout_constraintStart_toStartOf="@+id/viewDrinksSortAlcoholPercentDesc"
         app:layout_constraintTop_toTopOf="@+id/viewDrinksSortDateAddedAsc" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/viewDrinksSortDateAddedAsc"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#00FFFFFF"
         android:contentDescription="@string/view_drink_sort_asc"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_sort_ascending"
-        app:layout_constraintEnd_toEndOf="@+id/viewDrinksSortAlcoholPercentAsc"
-        app:layout_constraintStart_toStartOf="@+id/viewDrinksSortAlcoholPercentAsc"
-        app:layout_constraintTop_toBottomOf="@+id/viewDrinksSortAlcoholPercentAsc" />
+        app:layout_constraintEnd_toEndOf="@+id/viewDrinksSortAlcoholPercentAscButton"
+        app:layout_constraintStart_toStartOf="@+id/viewDrinksSortAlcoholPercentAscButton"
+        app:layout_constraintTop_toBottomOf="@+id/viewDrinksSortAlcoholPercentAscButton" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/viewDrinksRecyclerView"

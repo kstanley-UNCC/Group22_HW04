@@ -37,13 +37,15 @@ public class ViewDrinksRecyclerAdapter extends RecyclerView.Adapter<ViewDrinksRe
     @Override
     public void onBindViewHolder(@NonNull DrinkViewHolder holder, int position) {
         Drink drink = drinks.get(position);
-        holder.viewDrinksListRowAlcoholPercent.setText(String.valueOf(drink.drinkAlcoholPercent));
+        holder.viewDrinksListRowAlcoholPercent.setText(drink.drinkAlcoholPercent + "% Alcohol");
+
+        holder.viewDrinksListRowDrinkSize.setText(drink.drinkSize + " oz");
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm a", Locale.US);
         Date drinkDate = Calendar.getInstance().getTime();
         drinkDate.setTime(drink.dateTime);
 
-        holder.viewDrinksListRowDateAdded.setText(dateFormat.format(drinkDate));
+        holder.viewDrinksListRowDateAdded.setText("Added " + (dateFormat.format(drinkDate)));
     }
 
     @Override
