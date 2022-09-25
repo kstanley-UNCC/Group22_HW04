@@ -40,7 +40,8 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ic_sort_ascending"
         app:layout_constraintEnd_toStartOf="@+id/viewDrinksSortAlcoholPercentDescButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <ImageButton
         android:id="@+id/viewDrinksSortAlcoholPercentDescButton"
@@ -53,7 +54,8 @@
         android:src="@drawable/ic_sort_descending"
         app:layout_constraintBottom_toBottomOf="@+id/viewDrinksSortAlcoholPercentAscButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewDrinksSortAlcoholPercentAscButton" />
+        app:layout_constraintTop_toTopOf="@+id/viewDrinksSortAlcoholPercentAscButton"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <ImageButton
         android:id="@+id/viewDrinksSortDateAddedDescButton"
