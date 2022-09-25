@@ -70,7 +70,7 @@ public class AddDrinkFragment extends Fragment {
             } else if (addDrinkSizeGroup.getCheckedRadioButtonId() == R.id.addDrinkSizeOptionLarge) {
                 size = Drink.SIZE_LARGE;
             } else {
-                throw new IllegalStateException("Invalid drink size selected");
+                throw new IllegalStateException(getString(R.string.exception_illegal_state_drink_size));
             }
 
             listener.addDrinkButtonSetClicked(new Drink(size, addDrinkAlcoholPercentBar.getProgress()));
@@ -84,7 +84,7 @@ public class AddDrinkFragment extends Fragment {
         if (context instanceof iListener) {
             listener = (iListener) context;
         } else {
-            throw new RuntimeException(context + getString(R.string.listener_throw_message));
+            throw new RuntimeException(getString(R.string.listener_throw_message, context));
         }
     }
 

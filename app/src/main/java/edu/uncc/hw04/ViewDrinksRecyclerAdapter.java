@@ -19,11 +19,13 @@ public class ViewDrinksRecyclerAdapter extends RecyclerView.Adapter<ViewDrinksRe
     ArrayList<Drink> drinks;
     LayoutInflater mInflater;
     iViewDrinks iListener;
+    Context layout;
 
     public ViewDrinksRecyclerAdapter(Context layout, ArrayList<Drink> data, iViewDrinks iListener) {
         this.drinks = data;
         this.mInflater = LayoutInflater.from(layout);
         this.iListener = iListener;
+        this.layout = layout;
     }
 
     @NonNull
@@ -38,15 +40,15 @@ public class ViewDrinksRecyclerAdapter extends RecyclerView.Adapter<ViewDrinksRe
     public void onBindViewHolder(@NonNull DrinkViewHolder holder, int position) {
         Drink drink = drinks.get(position);
 
-        holder.viewDrinksListRowAlcoholPercent.setText(drink.drinkAlcoholPercent + "% Alcohol");
+        holder.viewDrinksListRowAlcoholPercent.setText(layout.getString(R.string.view_drink_list_row_alcohol_percent, drink.drinkAlcoholPercent));
 
-        holder.viewDrinksListRowDrinkSize.setText(drink.drinkSize + " oz");
+        holder.viewDrinksListRowDrinkSize.setText(layout.getString(R.string.view_drink_list_row_drink_size, drink.drinkSize));
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm a", Locale.US);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(layout.getString(R.string.view_drink_list_row_date_format), Locale.US);
         Date drinkDate = Calendar.getInstance().getTime();
         drinkDate.setTime(drink.dateTime);
 
-        holder.viewDrinksListRowDateAdded.setText("Added " + (dateFormat.format(drinkDate)));
+        holder.viewDrinksListRowDateAdded.setText(layout.getString(R.string.view_drink_list_row_date_added, dateFormat.format(drinkDate)));
     }
 
     @Override

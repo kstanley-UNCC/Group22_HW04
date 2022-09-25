@@ -77,7 +77,7 @@ public class ViewDrinksFragment extends Fragment implements ViewDrinksRecyclerAd
         if (context instanceof iListener) {
             mListener = (iListener) context;
         } else {
-            throw new RuntimeException(context + getString(R.string.listener_throw_message));
+            throw new RuntimeException(getString(R.string.listener_throw_message, context));
         }
     }
 
