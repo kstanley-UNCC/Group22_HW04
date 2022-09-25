@@ -16,6 +16,8 @@ import edu.uncc.hw04.fragments.SetProfileFragment;
 import edu.uncc.hw04.fragments.ViewDrinksFragment;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import edu.uncc.hw04.databinding.ActivityMainBinding;
 
@@ -110,6 +112,27 @@ public class MainActivity extends AppCompatActivity implements BACCalculatorFrag
         }
     }
 
+
+    @Override
+    public void sortByAlcoholPercentAsc(ArrayList<Drink> drinks) {
+        Collections.sort(drinks, new Comparator<Drink>() {
+            @Override
+            public int compare(Drink o1, Drink o2) {
+                return o1.getDrinkAlcoholPercent().compareTo(o2.getDrinkAlcoholPercent());
+            }
+        });
+    }
+
+    @Override
+    public void sortByDateAddedAsc(ArrayList<Drink> drinks) {
+        Collections.sort(drinks, new Comparator<Drink>() {
+            @Override
+            public int compare(Drink o1, Drink o2) {
+                return o1.getDrinkDateAdded().compareTo(o2.getDrinkDateAdded());
+            }
+        });
+    }
+
     @Override
     public void viewDrinksButtonCloseClicked(ArrayList<Drink> drinks) {
         BACCalculatorFragment fragment = (BACCalculatorFragment)getSupportFragmentManager().findFragmentByTag("calculator");
@@ -122,4 +145,5 @@ public class MainActivity extends AppCompatActivity implements BACCalculatorFrag
             fragment.updateDrinks(drinks, profile);
         }
     }
+
 }
