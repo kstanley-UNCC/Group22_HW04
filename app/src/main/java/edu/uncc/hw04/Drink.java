@@ -10,7 +10,7 @@ import android.os.Parcelable;
 
 import java.util.Calendar;
 
-public class Drink implements Parcelable {
+public class Drink implements Parcelable, Comparable<Drink>{
     public static final double SIZE_SMALL = 1.0;
     public static final double SIZE_MEDIUM = 5.0;
     public static final double SIZE_LARGE = 12.0;
@@ -43,8 +43,12 @@ public class Drink implements Parcelable {
         }
     };
 
-    public double getLiquidOunces() {
-        return (drinkAlcoholPercent * drinkSize) / 100;
+    public int getDrinkAlcoholPercent() {
+        return ((int) drinkAlcoholPercent);
+    }
+
+    public String getDrinkDateAdded() {
+        return (String.valueOf(dateTime));
     }
 
     @Override
@@ -58,4 +62,10 @@ public class Drink implements Parcelable {
         parcel.writeDouble(drinkAlcoholPercent);
         parcel.writeLong(dateTime);
     }
+
+    @Override
+    public int compareTo(Drink o) {
+        return 0;
+    }
+
 }

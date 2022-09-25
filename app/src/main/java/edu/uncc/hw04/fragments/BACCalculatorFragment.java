@@ -91,6 +91,7 @@ public class BACCalculatorFragment extends Fragment {
 
         numDrinksView.setText(getString(R.string.num_drinks_view, drinks.size()));
         bacLevelView.setText(getString(R.string.bac_level_view, bac));
+        weightView.setText(R.string.weight_view_label_reset);
     }
 
     @Override
