@@ -17,27 +17,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import edu.uncc.hw04.Drink;
-import edu.uncc.hw04.Drink.AlcoholPercentComparator;
-import edu.uncc.hw04.Drink.DateAddedComparator;
 import edu.uncc.hw04.R;
 import edu.uncc.hw04.ViewDrinksRecyclerAdapter;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
-import java.util.Locale;
 
 public class ViewDrinksFragment extends Fragment implements ViewDrinksRecyclerAdapter.iViewDrinks {
     int currentDrinkNumber = 0;
     ArrayList<Drink> drinks;
     LinearLayoutManager layoutManager;
     ViewDrinksRecyclerAdapter adapter;
-
-    AlcoholPercentComparator alcPercentComp = new AlcoholPercentComparator();
-    DateAddedComparator dateAddedComp = new DateAddedComparator();
 
     public ViewDrinksFragment(ArrayList<Drink> drinks) {
         this.drinks = drinks;
@@ -66,40 +58,15 @@ public class ViewDrinksFragment extends Fragment implements ViewDrinksRecyclerAd
 
         updateView(drinks);
 
-        view.findViewById(R.id.viewDrinksCloseButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mListener.viewDrinksButtonCloseClicked(drinks);
-            }
-        });
+        view.findViewById(R.id.viewDrinksCloseButton).setOnClickListener(v -> mListener.viewDrinksButtonCloseClicked(drinks));
 
-        view.findViewById(R.id.viewDrinksSortAlcoholPercentAscButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sortByAlcoholPercentAsc(drinks);
-            }
-        });
+        view.findViewById(R.id.viewDrinksSortAlcoholPercentAscButton).setOnClickListener(v -> sortByAlcoholPercentAsc(drinks));
 
-        view.findViewById(R.id.viewDrinksSortAlcoholPercentDescButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sortByAlcoholPercentDesc(drinks);
-            }
-        });
+        view.findViewById(R.id.viewDrinksSortAlcoholPercentDescButton).setOnClickListener(v -> sortByAlcoholPercentDesc(drinks));
 
-        view.findViewById(R.id.viewDrinksSortDateAddedAscButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sortByDateAddedAsc(drinks);
-            }
-        });
+        view.findViewById(R.id.viewDrinksSortDateAddedAscButton).setOnClickListener(v -> sortByDateAddedAsc(drinks));
 
-        view.findViewById(R.id.viewDrinksSortDateAddedDescButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sortByDateAddedDesc(drinks);
-            }
-        });
+        view.findViewById(R.id.viewDrinksSortDateAddedDescButton).setOnClickListener(v -> sortByDateAddedDesc(drinks));
 
     }
 
@@ -116,28 +83,28 @@ public class ViewDrinksFragment extends Fragment implements ViewDrinksRecyclerAd
 
     public void updateView(ArrayList<Drink> drinks) {
         Drink currentDrink = drinks.get(currentDrinkNumber);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm a", Locale.US);
-
         Date drinkDate = Calendar.getInstance().getTime();
         drinkDate.setTime(currentDrink.dateTime);
     }
 
     public void sortByAlcoholPercentAsc(ArrayList<Drink> drinks) {
-        Collections.sort(drinks, alcPercentComp);
+        Collections.sort(drinks, (o1, o2) -> (o1.getDrinkAlcoholPercent() - o2.getDrinkAlcoholPercent()));
         adapter.notifyDataSetChanged();
     }
 
     public void sortByAlcoholPercentDesc(ArrayList<Drink> drinks) {
-
+        Collections.sort(drinks, (o1, o2) -> (o2.getDrinkAlcoholPercent() - o1.getDrinkAlcoholPercent()));
+        adapter.notifyDataSetChanged();
     }
 
     public void sortByDateAddedAsc(ArrayList<Drink> drinks) {
-        Collections.sort(drinks, dateAddedComp);
+        Collections.sort(drinks, (o1, o2) -> (o1.getDrinkDateAdded().compareTo(o2.getDrinkDateAdded())));
         adapter.notifyDataSetChanged();
     }
 
     public void sortByDateAddedDesc(ArrayList<Drink> drinks) {
-
+        Collections.sort(drinks, (o1, o2) -> (o2.getDrinkDateAdded().compareTo(o1.getDrinkDateAdded())));
+        adapter.notifyDataSetChanged();
     }
 
     iListener mListener;

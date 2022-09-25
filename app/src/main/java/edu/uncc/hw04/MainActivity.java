@@ -16,8 +16,6 @@ import edu.uncc.hw04.fragments.SetProfileFragment;
 import edu.uncc.hw04.fragments.ViewDrinksFragment;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 import edu.uncc.hw04.databinding.ActivityMainBinding;
 

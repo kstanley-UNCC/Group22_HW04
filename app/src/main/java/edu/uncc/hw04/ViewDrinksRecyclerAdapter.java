@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,9 +31,7 @@ public class ViewDrinksRecyclerAdapter extends RecyclerView.Adapter<ViewDrinksRe
     public DrinkViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.fragment_viewdrinks_list_row, parent, false);
 
-        DrinkViewHolder drinkViewHolder = new DrinkViewHolder(view, iListener);
-
-        return drinkViewHolder;
+        return new DrinkViewHolder(view, iListener);
     }
 
     @Override
@@ -71,12 +68,9 @@ public class ViewDrinksRecyclerAdapter extends RecyclerView.Adapter<ViewDrinksRe
             viewDrinksListRowDateAdded = itemView.findViewById(R.id.viewDrinksListRowDateAdded);
             viewDrinksListRowDrinkSize = itemView.findViewById(R.id.viewDrinksListRowDrinkSize);
 
-            itemView.findViewById(R.id.viewDrinksListRowTrashButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int currentDrinkNumber = getLayoutPosition();
-                    iListener.trashButtonClicked(currentDrinkNumber);
-                }
+            itemView.findViewById(R.id.viewDrinksListRowTrashButton).setOnClickListener(v -> {
+                int currentDrinkNumber = getLayoutPosition();
+                iListener.trashButtonClicked(currentDrinkNumber);
             });
         }
     }
