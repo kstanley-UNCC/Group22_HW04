@@ -48,9 +48,10 @@
     <string name="view_drink_sort_desc">Sort Descending</string>
     <string name="view_drink_sort_alcohol_percent_label">Sort by Alcohol %:</string>
     <string name="view_drink_sort_date_added_label">Sort by Date Added:</string>
-    <string name="view_drink_list_row_alcohol_percent">%.0f % Alcohol</string>
+    <string name="view_drink_list_row_alcohol_percent">%.0f %% Alcohol</string>
     <string name="view_drink_list_row_date_added">Added %s</string>
     <string name="view_drink_list_row_drink_size">%.0f oz</string>
+    <string name="view_drink_list_row_date_format">MM/dd/yyyy hh:mm a</string>
     <string name="view_drink_button_close">Close</string>
 
     <string name="content_description_drink_image">Drink Image</string>
@@ -71,5 +72,5 @@
     <string name="intent_profile">profile</string>
     <string name="intent_drink">drink</string>
     <string name="intent_drink_list">drink_list</string>
-    <string name="listener_throw_message">\" must implement iListener\"</string>
+    <string name="listener_throw_message">\"%s must implement iListener\"</string>
 </resources>
